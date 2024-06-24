@@ -7,8 +7,7 @@ UserName : Final = '@MeligaVBot'
 
 
 async def start_command(update:Update , context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('''Welcome to the first step to become 
-                                    the man you alway want to be.''')
+    await update.message.reply_text('''Welcome my friend. we will grow here together.I\'m MeligaVbot and I\'m here to help you grow mentally and spiritually. are you ready for the journey?''')
     
 
 async def help_command(update:Update , context: ContextTypes.DEFAULT_TYPE):
@@ -22,14 +21,21 @@ async def custom_command(update:Update , context: ContextTypes.DEFAULT_TYPE):
 def handle_response(text:str)->str:
     text = text.lower()
     if 'hello' in text:
-        return 'Hey!'
-    if 'how are you' in text :
-        return 'I am good! and you?'
-    if "I'm good too" in text :
-        return 'okay. what can i do for you'
+        return 'Hey! I\'m MeligaVbot and I\'m here to help you grow mentally and spiritually. are you ready for the journey?'
     
-    if "film" in text:
-        return "Try this film: Wolf of wall street , Startup , spotify"
+    if 'yes' in text:
+        return 'Welcome to the first step to become the man you always want to be.What do you like the most? films? series? podcast or books? '
+    
+    if  "films" in text:
+        
+        return "Try this film: Wolf of wall street , The founder"
+    
+    if "series" in text:
+        print('senbon')
+        return "Trys these series : startup ,  spotify, billions, The crown"
+    
+    if "books"  in text:
+        return "Try these books : The miracle morning , Rich Father Poor Father , The seven habits of winners"
     
     return '''I\'m not understanding. please try to reformulate'''
 
@@ -49,7 +55,7 @@ async def handle_message(update:Update,context: ContextTypes.DEFAULT_TYPE):
     else:
         response:str = handle_response(text)
 
-
+    print('Here is the text :',text)
     print('Bot : ',response)
 
     await update.message.reply_text(response)
