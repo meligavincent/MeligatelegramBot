@@ -25,6 +25,11 @@ def handle_response(text:str)->str:
         return 'Hey!'
     if 'how are you' in text :
         return 'I am good! and you?'
+    if "I'm good too" in text :
+        return 'okay. what can i do for you'
+    
+    if "film" in text:
+        return "Try this film: Wolf of wall street , Startup , spotify"
     
     return '''I\'m not understanding. please try to reformulate'''
 
@@ -61,7 +66,7 @@ if __name__ == '__main__':
     # Commands
     app.add_handler(CommandHandler('start',start_command))
     app.add_handler(CommandHandler('help',help_command))
-    app.add_handler(CommandHandler('ccustom',custom_command))
+    app.add_handler(CommandHandler('custom',custom_command))
 
     # Messages
     app.add_handler(MessageHandler(filters.TEXT,handle_message))
